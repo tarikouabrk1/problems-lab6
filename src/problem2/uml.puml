@@ -1,0 +1,27 @@
+@startuml
+package problem2 {
+
+    class Bank {
+        - name: String
+        - customers: ArrayList<Customer>
+        + Bank(name: String)
+        + addCustomer(customerName: String, initialTransaction: double)
+        + addTransaction(customerName: String, amount: double)
+        + printStatements()
+        - findCustomer(name: String): Customer
+        + toString(): String
+    }
+
+    class Customer {
+        - name: String
+        - transactions: ArrayList<Double>
+        + Customer(name: String, initialTransaction: double)
+        + getName(): String
+        + getTransactions(): ArrayList<Double>
+        + addTransaction(amount: double)
+        + toString(): String
+    }
+
+    Bank "1" --> "*" Customer : manages >
+}
+@enduml
